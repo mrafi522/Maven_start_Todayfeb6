@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$USER_HOME$" vcs="Git" />
+    <mapping directory="$USER_HOME$/Desktop" vcs="Git" />
+    <mapping directory="$USER_HOME$/Desktop/Git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.idea" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/test/java/Test_Maven_start" vcs="Git" />
+  </component>
+</project>
