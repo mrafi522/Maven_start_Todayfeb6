@@ -22,7 +22,7 @@ public class Screenshot {
             TakesScreenshot ts=(TakesScreenshot)driver;
 
             File src=ts.getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(src, new File("./Pictures/"+screensho+".png"));
+            FileUtils.copyFile(src, new File("./Error_Screens/"+screensho+".png"));
             System.out.println("Error Screenshot Taken");
         } catch (Exception e) {
             System.out.println("Error message innscrenshot"+e.getMessage());

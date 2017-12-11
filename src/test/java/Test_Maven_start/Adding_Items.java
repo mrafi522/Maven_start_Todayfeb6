@@ -30,12 +30,13 @@ public class Adding_Items {
     public static WebDriver driver;
     public static String Emailid;
     public static int Day;
+    public static int Day1;
 
     @org.testng.annotations.Test
     public static void temp() throws IOException, InterruptedException {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Rmoha17\\Desktop\\Selenium\\chromedriver_win32\\chromedriver.exe");
-        fis = new FileInputStream("C:\\Users/rmoha17/Desktop/Projects/Test_data.xls");
+        System.setProperty("webdriver.chrome.driver",Config_Data.chromepath);
+        fis = new FileInputStream(Config_Data.Datasheet);
         WB = new HSSFWorkbook(fis);
         sheet = WB.getSheetAt(0);
         int Rcount = sheet.getLastRowNum();
@@ -51,6 +52,7 @@ public class Adding_Items {
             String Password = FRC.getCell(1).getStringCellValue();
             int Shift = (int) FRC.getCell(2).getNumericCellValue();
              Day=(int) FRC.getCell(3).getNumericCellValue();
+             Day1=Day+1;
             String Consider = FRC.getCell(6).getStringCellValue();
 
             int SPC = (int) FRC.getCell(7).getNumericCellValue();
@@ -66,7 +68,7 @@ public class Adding_Items {
             driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
             //    driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
             Actions action = new Actions(driver);
-            driver.get("https://shopecomqa.safeway.com/");
+            driver.get(Config_Data.URL);
             driver.manage().window().maximize();
             driver.findElement(By.xpath("//*[@href='/ecom/account/sign-in\']")).click();
 
@@ -208,7 +210,9 @@ public class Adding_Items {
                 driver.findElement(By.xpath("//*[@class='btnShowtime']")).click();
                 Thread.sleep(2000);
             }
-            List<WebElement> count = driver.findElements(By.xpath(("//*[starts-with(@class, ' level-"+Day+"  id-')]")));
+
+
+            List<WebElement> count = driver.findElements(By.xpath(("//*[starts-with(@class, ' level-"+Day1+"  id-')]")));
 
 
 
@@ -219,13 +223,13 @@ public class Adding_Items {
                         String Fshift1 = count.get(13).getAttribute("class");
                         String Fshift2 = count.get(14).getAttribute("class");
                         String Fshift3 = count.get(15).getAttribute("class");
-                        if (Fshift1.equalsIgnoreCase(" level-"+Day+"  id-slotOpen")) {
+                        if (Fshift1.equalsIgnoreCase(" level-"+Day1+"  id-slotOpen")) {
                             driver.findElement(By.xpath("//*[@id='timeSlots']/div/div[2]/div/div[6]/div[2]/div[2]/table/tbody/tr[1]/td["+Day+"]")).click();
                             break;
-                        } else if (Fshift2.equalsIgnoreCase(" level-"+Day+"  id-slotOpen")) {
+                        } else if (Fshift2.equalsIgnoreCase(" level-"+Day1+"  id-slotOpen")) {
                             driver.findElement(By.xpath("//*[@id='timeSlots']/div/div[2]/div/div[6]/div[2]/div[2]/table/tbody/tr[2]/td["+Day+"]")).click();
                             break;
-                        } else if (Fshift3.equalsIgnoreCase(" level-"+Day+"  id-slotOpen")) {
+                        } else if (Fshift3.equalsIgnoreCase(" level-"+Day1+"  id-slotOpen")) {
                             driver.findElement(By.xpath("//*[@id='timeSlots']/div/div[2]/div/div[6]/div[2]/div[2]/table/tbody/tr[3]/td["+Day+"]")).click();
                             break;
                         } else {
@@ -241,19 +245,19 @@ public class Adding_Items {
                         String Sshift3 = count.get(18).getAttribute("class");
                         String Sshift4 = count.get(19).getAttribute("class");
                         String Sshift5 = count.get(20).getAttribute("class");
-                        if (Sshift1.equalsIgnoreCase(" level-"+Day+"  id-slotOpen")) {
+                        if (Sshift1.equalsIgnoreCase(" level-"+Day1+"  id-slotOpen")) {
                             driver.findElement(By.xpath("//*[@id='timeSlots']/div/div[2]/div/div[6]/div[2]/div[2]/table/tbody/tr[4]/td["+Day+"]")).click();
                             break;
-                        } else if (Sshift2.equalsIgnoreCase(" level-"+Day+"  id-slotOpen")) {
+                        } else if (Sshift2.equalsIgnoreCase(" level-"+Day1+"  id-slotOpen")) {
                             driver.findElement(By.xpath("//*[@id='timeSlots']/div/div[2]/div/div[6]/div[2]/div[2]/table/tbody/tr[5]/td["+Day+"]")).click();
                             break;
-                        } else if (Sshift3.equalsIgnoreCase(" level-"+Day+"  id-slotOpen")) {
+                        } else if (Sshift3.equalsIgnoreCase(" level-"+Day1+"  id-slotOpen")) {
                             driver.findElement(By.xpath("//*[@id='timeSlots']/div/div[2]/div/div[6]/div[2]/div[2]/table/tbody/tr[6]/td["+Day+"]")).click();
                             break;
-                        } else if (Sshift4.equalsIgnoreCase(" level-"+Day+"  id-slotOpen")) {
+                        } else if (Sshift4.equalsIgnoreCase(" level-"+Day1+"  id-slotOpen")) {
                             driver.findElement(By.xpath("//*[@id='timeSlots']/div/div[2]/div/div[6]/div[2]/div[2]/table/tbody/tr[7]/td["+Day+"]")).click();
                             break;
-                        } else if (Sshift5.equalsIgnoreCase(" level-"+Day+"  id-slotOpen")) {
+                        } else if (Sshift5.equalsIgnoreCase(" level-"+Day1+"  id-slotOpen")) {
                             driver.findElement(By.xpath("//*[@id='timeSlots']/div/div[2]/div/div[6]/div[2]/div[2]/table/tbody/tr[8]/td["+Day+"]")).click();
                             break;
                         } else {
@@ -268,19 +272,19 @@ public class Adding_Items {
                         String Tshift3 = count.get(23).getAttribute("class");
                         String Tshift4 = count.get(24).getAttribute("class");
                         String Tshift5 = count.get(25).getAttribute("class");
-                        if (Tshift1.equalsIgnoreCase(" level-"+Day+"  id-slotOpen")) {
+                        if (Tshift1.equalsIgnoreCase(" level-"+Day1+"  id-slotOpen")) {
                             driver.findElement(By.xpath("//*[@id='timeSlots']/div/div[2]/div/div[6]/div[2]/div[2]/table/tbody/tr[9]/td["+Day+"]")).click();
                             break;
-                        } else if (Tshift2.equalsIgnoreCase(" level-"+Day+"  id-slotOpen")) {
+                        } else if (Tshift2.equalsIgnoreCase(" level-"+Day1+"  id-slotOpen")) {
                             driver.findElement(By.xpath("//*[@id='timeSlots']/div/div[2]/div/div[6]/div[2]/div[2]/table/tbody/tr[10]/td["+Day+"]")).click();
                             break;
-                        } else if (Tshift3.equalsIgnoreCase(" level-"+Day+"  id-slotOpen")) {
+                        } else if (Tshift3.equalsIgnoreCase(" level-"+Day1+"  id-slotOpen")) {
                             driver.findElement(By.xpath("//*[@id='timeSlots']/div/div[2]/div/div[6]/div[2]/div[2]/table/tbody/tr[11]/td["+Day+"]")).click();
                             break;
-                        } else if (Tshift4.equalsIgnoreCase(" level-"+Day+"  id-slotOpen")) {
+                        } else if (Tshift4.equalsIgnoreCase(" level-"+Day1+"  id-slotOpen")) {
                             driver.findElement(By.xpath("//*[@id='timeSlots']/div/div[2]/div/div[6]/div[2]/div[2]/table/tbody/tr[12]/td["+Day+"]")).click();
                             break;
-                        } else if (Tshift5.equalsIgnoreCase(" level-"+Day+"  id-slotOpen")) {
+                        } else if (Tshift5.equalsIgnoreCase(" level-"+Day1+"  id-slotOpen")) {
                             driver.findElement(By.xpath("//*[@id='timeSlots']/div/div[2]/div/div[6]/div[2]/div[2]/table/tbody/tr[13]/td["+Day+"]")).click();
                             break;
                         } else {
@@ -320,7 +324,7 @@ public class Adding_Items {
                 FRC = sheet.getRow(i);
                 Ccell = FRC.createCell(4);
                 Ccell.setCellValue(OrderN);
-                FileOutputStream fos = new FileOutputStream("C:\\Users/rmoha17/Desktop/Projects/Test_data.xls");
+                FileOutputStream fos = new FileOutputStream(Config_Data.Datasheet);
                 WB.write(fos);
                 fos.close();
                 driver.close();
@@ -331,7 +335,7 @@ public class Adding_Items {
                 FRC = sheet.getRow(i);
                 Ccell = FRC.createCell(4);
                 Ccell.setCellValue("Failed");
-                FileOutputStream fos = new FileOutputStream("C:\\Users/rmoha17/Desktop/Projects/Test_data.xls");
+                FileOutputStream fos = new FileOutputStream(Config_Data.Datasheet);
                 WB.write(fos);
                 fos.close();
                 try{
